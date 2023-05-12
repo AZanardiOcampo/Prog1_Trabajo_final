@@ -1,0 +1,26 @@
+
+header
+{
+    background-color: black;
+}
+
+.navheader
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 5%;
+}
+
+.logo
+{
+    width: 8%;
+}
+
+.asnav
+{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
