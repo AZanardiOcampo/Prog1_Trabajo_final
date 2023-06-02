@@ -6,6 +6,7 @@ body
 header
 {
     background-color: black;
+    border-radius: 10px;
 }
 
 .navheader
@@ -27,4 +28,35 @@ header
     color: white;
     display: flex;
     align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.artistas
+{
+    background-color: black;
+    border-radius: 10px;
+}
+
+.albumes
+{
+    background-color: black;
+    border-radius: 10px;
+}
+
+.canciones
+{
+    background-color: black;
+    border-radius: 10px;
+}
+
+h1
+{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2
+{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
 }
