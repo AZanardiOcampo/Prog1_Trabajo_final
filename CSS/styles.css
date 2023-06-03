@@ -1,12 +1,11 @@
 body
 {
-    background-color: #5E5E5E;
+    background-color: #424242;
 }
 
 header
 {
     background-color: black;
-    border-radius: 10px;
 }
 
 .navheader
@@ -31,22 +30,89 @@ header
     font-family: 'Open Sans', sans-serif;
 }
 
-.artistas
+.cancion
 {
-    background-color: black;
+    background-color: #424242;
     border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
 }
 
-.albumes
+.artista
 {
-    background-color: black;
+    background-color: #424242;
     border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
+}
+
+.album
+{
+    background-color: #424242;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
 }
 
 .canciones
 {
-    background-color: black;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    background-color: #4c4c4c;
+    padding: 15px;
     border-radius: 10px;
+}
+
+.artistas
+{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    background-color: #4c4c4c;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.albums
+{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    background-color: #4c4c4c;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.portadas
+{
+    padding: 20px;
+}
+
+.portadas2
+{
+    padding: 20px;
+    border-radius: 50%;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+p
+{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1
@@ -59,4 +125,10 @@ h2
 {
     color: white;
     font-family: 'Open Sans', sans-serif;
+}
+
+.centrar
+{
+    display: flex;
+    justify-content: center;
 }
