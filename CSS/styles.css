@@ -132,3 +132,17 @@ h2
     display: flex;
     justify-content: center;
 }
+.img-generos
+{
+    width: 150px;
+    height: 190px
+}
+.container-generos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 230px;
+    margin: 50px;
+
+
+}
