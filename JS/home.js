@@ -15,7 +15,7 @@ fetch(urlcanciones)
         for (let i=0; i<6; i++) 
         {
             songs +=`<ul class="cancion"><a href="Details.html">
-                <li><img src="${data.data[i].album.cover}" class="portadas" alt=""></li>
+                <li class="portadas"><img src="${data.data[i].album.cover}" alt=""></li>
                 <li><p>${data.data[i].title}</p></li>
                 <li><p>${data.data[i].artist.name}</p></li></a>
             </ul>`
@@ -40,10 +40,10 @@ fetch(urlcanciones)
             console.log(data);
             let albumshtml = document.querySelector(".albums")
             let albums = ""
-            for (let i=2; i<7; i++) 
+            for (let i=1; i<7; i++) 
             {
                 albums +=`<ul class="album"><a href="Details.html">
-                    <li><img src="${data.data[i].cover}" class="portadas" alt=""></li>
+                    <li class="portadas"><img src="${data.data[i].cover}" alt=""></li>
                     <li><p>${data.data[i].title}</p></li>
                     <li><p>${data.data[i].artist.name}</p></li></a>
                 </ul>`
