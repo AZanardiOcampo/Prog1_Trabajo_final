@@ -120,6 +120,11 @@ a
     border-radius: 50%;
 }
 
+.imgportadas
+{
+    border-radius: 10px;
+}
+
 a
 {
     text-decoration: none;
@@ -161,4 +166,27 @@ h2
     margin: 50px;
 
 
+}
+
+.detalles
+{
+    background-color: #4c4c4c;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.portadadetalle
+{
+    width: 30%;
+    height: 30%;
+    border-radius: 20px;
+}
+
+.details
+{
+    display: flex;
+    justify-content: center;
 }

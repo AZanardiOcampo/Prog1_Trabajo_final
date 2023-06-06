@@ -14,8 +14,8 @@ fetch(urlcanciones)
         let songs = ""
         for (let i=0; i<6; i++) 
         {
-            songs +=`<ul class="cancion"><a href="Details.html">
-                <li class="portadas"><img src="${data.data[i].album.cover}" alt=""></li>
+            songs +=`<ul class="cancion"><a href="Details.html?id=${data.data[i].id}">
+                <div class="portadas"><img class="imgportadas" src="${data.data[i].album.cover}" alt=""></div>
                 <li><p>${data.data[i].title}</p></li>
                 <li><p>${data.data[i].artist.name}</p></li></a>
             </ul>`
@@ -42,8 +42,8 @@ fetch(urlcanciones)
             let albums = ""
             for (let i=1; i<7; i++) 
             {
-                albums +=`<ul class="album"><a href="Details.html">
-                    <li class="portadas"><img src="${data.data[i].cover}" alt=""></li>
+                albums +=`<ul class="album"><a href="Details.html?id=${data.data[i].id}">
+                    <li class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></li>
                     <li><p>${data.data[i].title}</p></li>
                     <li><p>${data.data[i].artist.name}</p></li></a>
                 </ul>`
@@ -71,7 +71,7 @@ fetch(urlcanciones)
                 for (let i=1; i<7; i++) 
                 {
                     albums +=`<ul class="artista">
-                        <a href="Details.html">
+                        <a href="Details.html?id=${data.data[i].id}">
                         <li><img src="${data.data[i].picture}" class="portadas2" alt=""></li>
                         <li><div class="centrar"><p>${data.data[i].name}</p></div></li></a>
                     </ul>`
