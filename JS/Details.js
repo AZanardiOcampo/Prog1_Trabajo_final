@@ -5,8 +5,6 @@ console.log(queryString);
 
 apiurl = `https://api.allorigins.win/raw?url=https://api.deezer.com/track/${id}`
 
-
-
 fetch(apiurl)
   .then(function(response) {
     return response.json();
@@ -16,11 +14,12 @@ fetch(apiurl)
 
         let seccion = document.querySelector(".details");
         let characters = ""
+        let tracks = document.querySelector("h2")
 
         characters += `<section class="detalles"><img class="portadadetalle" src="${data.album.cover}" alt="">
-            <p>${data.title}</p>
-            <p>${data.artist.name}</p>
-            <p>${data.album.title}</p>
+            <p>Title: ${data.title}</p>
+            <p>Artist: ${data.artist.name}</p>
+            <p>Album: ${data.album.title}</p>
             <button>Add to favs</button>
             <p><a href="Playlist.html">Playlist / Favourites</a></p>
             </section>` 
@@ -31,8 +30,6 @@ fetch(apiurl)
 
   apiurl = `https://api.allorigins.win/raw?url=https://api.deezer.com/album/${id}`
 
- 
-  
   fetch(apiurl)
     .then(function(response) {
       return response.json();
@@ -43,28 +40,26 @@ fetch(apiurl)
         let seccion2 = document.querySelector(".details");
         let characters = ""
   
-          characters +=  `
-          <p class="centrar"><img class="portadadetalle" src="${data.cover}" alt=""></p>
+          characters +=  `<section class="detalles">
+          <img class="portadadetalle" src="${data.cover}" alt="">
           <p>${data.title}</p>
-          <p>${data.artist.name}</p>
-          <p>${data.title}</p>
+          <p>Artist: ${data.artist.name}</p>
           <p>Genre/s: ${data.genres.data[0].name}</p>
           <p>Released: ${data.release_date}</p>
-          <h2>Tracks</h2>
-        `
-
-        for (let i = 0; i < data.tracks.data.length; i++) {
-          characters += `
-            <section class="canciones">
-              <ul class="cancion">
-                <a href="Details.html?id=${data.tracks.data[i].id}">
-                  <div class="portadas"><img class="imgportadas" src="${data.tracks.data[i].album.cover}" alt=""></div>
-                  <li><p>${data.tracks.data[i].title}</p></li>
-                </a>
-              </ul>
-            </section>
-          `;
+          </section>`
 
           seccion2.innerHTML = characters;
 
+          let articulo = document.querySelector(".canciones")
+          let characters2 = ""
+
+        for (let i = 0; i < data.tracks.data.length; i++) {
+          characters2 += `
+              <ul class="cancion">
+              <a href="Details.html?id=${data.tracks.data[i].id}">
+              <div class="portadas"><img class="imgportadas" src="${data.tracks.data[i].album.cover}" alt=""></div>
+              <li><p>${data.tracks.data[i].title}</p></li></a></ul>
+            </section>
+          `
+          articulo.innerHTML = characters2;
         }})
