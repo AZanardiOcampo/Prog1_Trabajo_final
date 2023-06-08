@@ -50,7 +50,7 @@ fetch(apiurl)
 
           seccion2.innerHTML = characters;
 
-          let articulo = document.querySelector(".canciones")
+          let articulo = document.querySelector(".cancionesdetails")
           let characters2 = ""
 
         for (let i = 0; i < data.tracks.data.length; i++) {
@@ -59,7 +59,6 @@ fetch(apiurl)
               <a href="Details.html?id=${data.tracks.data[i].id}">
               <div class="portadas"><img class="imgportadas" src="${data.tracks.data[i].album.cover}" alt=""></div>
               <li><p>${data.tracks.data[i].title}</p></li></a></ul>
-            </section>
           `
           articulo.innerHTML = characters2;
         }})

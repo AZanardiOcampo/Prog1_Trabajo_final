@@ -172,16 +172,16 @@ h2
 {
     background-color: #4c4c4c;
     border-radius: 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 50%;
+    width: 20%;
 }
 
 .portadadetalle
 {
-    width: 30%;
-    height: 30%;
+    width: 70%;
+    height: 70%;
     border-radius: 20px;
 }
 
@@ -195,4 +195,16 @@ footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.cancionesdetails
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+    background-color: #4c4c4c;
+    padding: 15px;
+    border-radius: 10px;
 }
