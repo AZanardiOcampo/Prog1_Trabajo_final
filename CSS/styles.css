@@ -175,14 +175,15 @@ h2
     padding: 20px;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 50%;
 }
 
 .portadadetalle
 {
-    width: 70%;
-    height: 70%;
+    width: 50%;
     border-radius: 20px;
+    background-color: #424242;
+    padding: 10px;
 }
 
 .details
