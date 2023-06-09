@@ -40,11 +40,11 @@ fetch(urlcanciones)
             console.log(data);
             let albumshtml = document.querySelector(".albums")
             let albums = ""
-            for (let i=1; i<7; i++) 
+            for (let i=0; i<6; i++) 
             {
                 albums +=`<ul class="album"><a href="Details.html?id=${data.data[i].id}">
                     <li class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></li>
-                    <li><p>${data.data[i].title}</p></li>
+                    <li><p class="ajuste">${data.data[i].title}</p></li>
                     <li><p>${data.data[i].artist.name}</p></li></a>
                 </ul>`
             }
