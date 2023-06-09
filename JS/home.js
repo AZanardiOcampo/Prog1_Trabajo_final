@@ -83,3 +83,16 @@ fetch(urlcanciones)
             {
                 console.log("El error es: " + error);
             })
+
+let form = document.querySelector("form");
+let input = document.querySelector("input");
+            
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+            
+    if(input.value === ""){
+        alert("El campo es obligatorio!")
+    }  else {
+        this.submit()
+    }
+})
