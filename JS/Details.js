@@ -55,6 +55,8 @@ fetch(apiurl)
           seccion2.innerHTML = characters;
 
           let articulo = document.querySelector(".cancionesdetails")
+          let containeralbums = document.querySelector(".albumsdetails")
+          containeralbums.style.display="none"
           let characters2 = ""
 
         for (let i = 0; i < data.tracks.data.length; i++) {
@@ -78,7 +80,6 @@ fetch(apiurl)
                 let seccion = document.querySelector(".details");
                 let characters = ""
                 let albums = document.querySelector(".cambio")
-
                 albums.innerText = "Albums"
         
                 characters += `<section class="detalles">
@@ -100,8 +101,10 @@ fetch(apiurl)
               {
                   console.log(data);
                   let canciones = document.querySelector(".albumsdetails")
+                  let containercanciones = document.querySelector(".cancionesdetails")
+                  containercanciones.style.display="none"
                   let songs = ""
-                  for (let i=0; i<6; i++) 
+                  for (let i=0; i<5; i++) 
                   {
                       songs +=`<ul class="album"><a href="Details.html?id=${data.data[i].id}">
                       <div class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></div>
