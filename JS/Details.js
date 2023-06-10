@@ -3,7 +3,8 @@ let id = queryString.substring(4);
 console.log(id);
 console.log(queryString);
 
-apiurl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${id}`
+
+apiurl = `https://api.allorigins.win/raw?url=https://api.deezer.com/track/${id}`
 
 fetch(apiurl)
   .then(function(response) {
@@ -29,7 +30,7 @@ fetch(apiurl)
         seccion.innerHTML = characters;
   });
 
-  apiurl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/${id}`
+  apiurl = `https://api.allorigins.win/raw?url=https://api.deezer.com/album/${id}`
 
   fetch(apiurl)
     .then(function(response) {
@@ -39,6 +40,8 @@ fetch(apiurl)
       console.log(data);
    
         let seccion2 = document.querySelector(".details");
+        let tracks = document.querySelector(".cambio")
+        tracks.innerText = "Tracks"
         let characters = ""
   
           characters +=  `<section class="detalles">
@@ -55,17 +58,15 @@ fetch(apiurl)
           let characters2 = ""
 
         for (let i = 0; i < data.tracks.data.length; i++) {
-          characters2 += `
-            <li>
+          characters2 += `<ul class="songs">
               <a href="Details.html?id=${data.tracks.data[i].id}">
-              <div class="portadas"><img class="imgportadas" src="${data.tracks.data[i].album.cover_medium}" width="400" height="600" alt=""></div>
-              <p>${data.tracks.data[i].title}</p></a>
-            </li>
+              <li>${i}. ${data.tracks.data[i].title}</li></a>
+              </ul>
           `
           articulo.innerHTML = characters2;
         }})
 
-        apiurl = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}`
+        apiurl = `https://api.allorigins.win/raw?url=https://api.deezer.com/artist/${id}`
 
         fetch(apiurl)
           .then(function(response) {
@@ -76,7 +77,9 @@ fetch(apiurl)
         
                 let seccion = document.querySelector(".details");
                 let characters = ""
-                let albums = document.querySelector("h2")
+                let albums = document.querySelector(".cambio")
+
+                albums.innerText = "Albums"
         
                 characters += `<section class="detalles">
                     <p><div class="centrar"><img class="portadadetalle" src="${data.picture_big}" alt=""></div></p>
@@ -86,7 +89,7 @@ fetch(apiurl)
                 seccion.innerHTML = characters;
           });
 
-          urlalbumsartista = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/${id}/albums`
+          urlalbumsartista = `https://api.allorigins.win/raw?url=https://api.deezer.com/artist/${id}/albums`
 
           fetch(urlalbumsartista)
               .then(function(response)
@@ -96,15 +99,13 @@ fetch(apiurl)
               .then(function(data)
               {
                   console.log(data);
-                  let canciones = document.querySelector(".cancionesdetails")
-                  let tracks = document.querySelector(".cambio")
-                  tracks.innerText = "Albums"
+                  let canciones = document.querySelector(".albumsdetails")
                   let songs = ""
-                  for (let i=0; i<5; i++) 
+                  for (let i=0; i<6; i++) 
                   {
                       songs +=`<ul class="album"><a href="Details.html?id=${data.data[i].id}">
                       <div class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></div>
-                          <li><p>${data.data[i].title}</p></li></a>
+                          <li><p class="ajuste">${data.data[i].title}</p></li></a>
                       </ul>`
                   }
                   

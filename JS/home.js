@@ -1,6 +1,6 @@
 
 
-let urlcanciones = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/tracks"
+let urlcanciones = "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/tracks"
 
 fetch(urlcanciones)
     .then(function(response)
@@ -12,6 +12,7 @@ fetch(urlcanciones)
         console.log(data);
         let canciones = document.querySelector(".canciones")
         let songs = ""
+        
         for (let i=0; i<6; i++) 
         {
             songs +=`<ul class="cancion"><a href="Details.html?id=${data.data[i].id}">
@@ -28,7 +29,7 @@ fetch(urlcanciones)
         console.log("El error es: " + error);
     })
 
-    let urlalbums = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums"
+    let urlalbums = "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/albums"
 
     fetch(urlalbums)
         .then(function(response)
@@ -56,7 +57,8 @@ fetch(urlcanciones)
             console.log("El error es: " + error);
         })
 
-        let urlartistas = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/artists"
+
+        let urlartistas = "https://api.allorigins.win/raw?url=https://api.deezer.com/chart/0/artists"
 
         fetch(urlartistas)
             .then(function(response)

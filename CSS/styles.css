@@ -161,20 +161,6 @@ h2
     display: flex;
     justify-content: center;
 }
-.img-generos
-{
-    width: 150px;
-    height: 190px
-}
-.container-generos {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 230px;
-    margin: 50px;
-
-
-}
 
 .detalles
 {
@@ -209,20 +195,28 @@ footer{
 .cancionesdetails
 {
     display: flex;
-    flex-direction: row;
     list-style: none;
+    flex-direction: column;
     background-color: #4c4c4c;
     padding: 15px;
     border-radius: 10px;
 }
 
-.buscador
+.songs
 {
     background-color: #424242;
     border-radius: 10px;
+    list-style: none;
+    display: flex;
+    padding: 15px;
+}
+
+.buscador
+{
+    background-color: white;
+    border-radius: 10px;
     font-size: 14px;
     border-width: 0px;
-    color: white;
 }
 
 .botonbuscador
@@ -233,4 +227,27 @@ footer{
     width: 30%;
 }
 
-::placeholder { color: white; }
+::placeholder { color: black; 
+text-align: center;}
+
+.generos
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #4c4c4c;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.albumsdetails
+{
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    background-color: #4c4c4c;
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: space-between;
+}

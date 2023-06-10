@@ -1,4 +1,4 @@
-let url = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre"
+let url = "https://api.allorigins.win/raw?url=https://api.deezer.com/genre"
 
 fetch(url)
     .then(function(response)
@@ -11,13 +11,17 @@ fetch(url)
         console.log(data);
         let container = document.querySelector(".generos")
         let characters = ""
+        let array = data.data
 
-        for (let i=0; i<data.length; i++)
+        for (let i=1; i<array.length; i++)
         {
-           characters += `
-            <img src="${data.data[i].picture}" alt="">
-            <p>${data.data[i].name}</p>  `     
+           characters += `<article>
+            <a href="Genresdetails.html?id=${array[i].id}">
+            <img src="${array[i].picture_medium}" alt="">
+            <p>${array[i].name}</p></a>
+            </article>`     
         } 
+        
         container.innerHTML += characters
     })       
     

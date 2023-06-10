@@ -4,22 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>Details</title>
 </head>
 <body>
+    <header>
+        <nav class="navheader">
+            <img src="img/Singin' Bird.png" alt="" class="logo">
+           <a href="Home.html" class="asnav">HOME</a>
+           <a href="Genres.html" class="asnav">GENRES</a>
+           <a href="Playlist.html" class="asnav">PLAYLIST / FAVOURITES</a>
+           <form class="asnav" action="Results.html" method="get">
+            <input class="buscador" type="text" name="buscar" id="" placeholder="Search">
+            <button class="botonbuscador" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
+        </form>
+        </nav>
+    </header>
+    <p></p>
     <article class="details">
-    </article>    
-    <h2 class="cambio">Tracks</h2>
-    <section class="cancionesdetails uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="sets: true">
-        <ul class="cancion uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m">
-        </ul>
+    </article>
+    <p></p>    
+    <h2 class="cambio"></h2>
+    <section class="cancionesdetails">
+    </section>
+    <section class="albumsdetails">
     </section>
 
-
-    <script src="JS/Details.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.19/dist/js/uikit-icons.min.js"></script>
+    <script src="JS/Details.js"></script> 
 </body>
 </html>
