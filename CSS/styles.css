@@ -233,8 +233,8 @@ text-align: center;}
 .generos
 {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    list-style: circle;
     justify-content: space-between;
     background-color: #4c4c4c;
     padding: 15px;
