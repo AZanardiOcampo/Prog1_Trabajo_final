@@ -251,3 +251,30 @@ text-align: center;}
     border-radius: 10px;
     justify-content: space-between;
 }
+
+.favs
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.favoritos
+{
+    display: flex;
+    justify-content: center;
+    width: 45%;
+    background-color: #4c4c4c;
+    border-color: #424242;
+    color: white;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.listagenres
+{
+    color: white;
+    list-style: square;
+    font-family: 'Open Sans', sans-serif;
+}
