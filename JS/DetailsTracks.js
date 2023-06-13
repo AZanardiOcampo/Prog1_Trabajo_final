@@ -15,17 +15,45 @@ fetch(apiurl)
 
         let seccion = document.querySelector(".details");
         let reproductor = document.querySelector("audio")
-        let characters = ""
+        let titulo = document.querySelector(".titulo")
+        let artista = document.querySelector(".artistatracks")
+        let album = document.querySelector(".albumtracks")
+        let imagen = document.querySelector(".portadadetalle")
 
-        characters += `<section class="detalles">
-            <div class="centrar"><img class="portadadetalle" src="${data.album.cover_big}" alt=""></div>
-            <p>Title: ${data.title}</p>
-            <p>Artist: ${data.artist.name}</p>
-            <p>Album: ${data.album.title}</p>
-            <div class="favs"><button class="favoritos">ADD TO FAVOURITES</button> <a href="Playlist.html" class="favoritos">Playlist / Favourites</a></div>
-            </section>` 
-    
-        seccion.innerHTML = characters;
+        titulo.innerText = "Title: " + data.title
+        artista.innerText = "Artist: " + data.artist.name
+        album.innerText = "Album: " + data.album.title
+        imagen.src = data.album.cover_big
         reproductor.src = data.preview
   });
+
+  let botonfavs = document.querySelector("#addfavs")
+  let recuperoStorage = localStorage.getItem("Favoritos");
+  let storageToArray = JSON.parse(recuperoStorage)
+  
+  let favoritos = []
+  if(recuperoStorage !== null)
+  {
+    favoritos = storageToArray
+  }
+
+  if(id in favoritos)
+  {
+    botonfavs.innerText = "REMOVE FROM FAVOURITES"
+    botonfavs.style.backgroundcolor = "#424242";
+    botonfavs.addEventListener("click", function(e)
+    {
+      
+    })
+  }
+  botonfavs.addEventListener("click", function(e) 
+  {
+      e.preventDefault()
+      favoritos.push(id)
+      let nuevofavoritos = JSON.stringify(favoritos)
+      localStorage.setItem("Favoritos", nuevofavoritos)
+      console.log(localStorage);
+      botonfavs.innerText = "REMOVE FROM FAVOURITES"
+      botonfavs.style.backgroundcolor = "#424242";
+  })
 

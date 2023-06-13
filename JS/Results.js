@@ -5,7 +5,7 @@ let datoABuscar = qsToObject.get("buscar")
 let busqueda = document.querySelector("h1")
 busqueda.innerHTML += `<h1>Resultados de busqueda para <i>${datoABuscar}</i></h1>`
 
-let endpoint = `https://api.deezer.com/search?buscar=${datoABuscar}`
+let endpoint = `https://api.allorigins.win/raw?url=https://api.deezer.com/search?buscar=${datoABuscar}`
 
 fetch(endpoint)
     .then(function(response){

@@ -17,8 +17,8 @@ fetch(urlcanciones)
         {
             songs +=`<ul class="cancion"><a href="DetailsTracks.html?id=${data.data[i].id}">
             <div class="portadas"><img class="imgportadas" src="${data.data[i].album.cover}" alt=""></div>
-                <li><p>${data.data[i].title}</p></li>
-                <li><p>${data.data[i].artist.name}</p></li></a>
+                <li><p class="ajuste">${data.data[i].title}</p></li>
+                <li><p class="ajuste">${data.data[i].artist.name}</p></li></a>
             </ul>`
         }
         
@@ -46,7 +46,7 @@ fetch(urlcanciones)
                 albums +=`<ul class="album"><a href="DetailsAlbums.html?id=${data.data[i].id}">
                     <li class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></li>
                     <li><p class="ajuste">${data.data[i].title}</p></li>
-                    <li><p>${data.data[i].artist.name}</p></li></a>
+                    <li><p class="ajuste">${data.data[i].artist.name}</p></li></a>
                 </ul>`
             }
             
