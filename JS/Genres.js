@@ -19,6 +19,7 @@ fetch(url)
             <a href="Genresdetails.html?id=${array[i].id}">
             <img class="imagenGenre" src="${array[i].picture_medium}" alt="">
             <p class="palabraGenere">${array[i].name}</p></a>
+            
             </article>`     
         } 
         
