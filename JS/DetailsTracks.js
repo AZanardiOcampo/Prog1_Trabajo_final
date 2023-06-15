@@ -18,49 +18,55 @@ fetch(apiurl)
         let artista = document.querySelector(".artistatracks")
         let album = document.querySelector(".albumtracks")
         let imagen = document.querySelector(".portadadetalle")
-        let botonfavs = document.querySelector("#addfavs")
 
         titulo.innerText = "Title: " + data.title
         artista.innerText = "Artist: " + data.artist.name
         album.innerText = "Album: " + data.album.title
         imagen.src = data.album.cover_big
         reproductor.src = data.preview
+})
 
-        let recuperoStorage = localStorage.getItem("Favoritos");
-        let storageToArray = JSON.parse(recuperoStorage)
-        
-        let favoritos = []
-        if(recuperoStorage !== null)
-        {
-          favoritos = storageToArray
-        }
+let recuperoStorage = localStorage.getItem("Favoritos");
+let storageToArray = JSON.parse(recuperoStorage);
 
-        if (favoritos.includes(id)) 
-        {
-          botonfavs.innerText = "REMOVE FROM FAVOURITES";
-          botonfavs.style.backgroundColor = "#424242";
-          botonfavs.addEventListener("click", function(e) {
-            e.preventDefault();
-            const index = favoritos.indexOf(id);
-            if (index > -1) {
-              favoritos.splice(index, 1);
-            }
-            let nuevofavoritos = JSON.stringify(favoritos);
-            localStorage.setItem("Favoritos", nuevofavoritos);
-            console.log(localStorage);
-            botonfavs.innerText = "ADD TO FAVOURITES";
-            botonfavs.style.backgroundColor = ""; // Restaurar el color original
-          })
-        } else 
-        {
-          botonfavs.addEventListener("click", function(e) {
-            e.preventDefault();
-            favoritos.push(id);
-            let nuevofavoritos = JSON.stringify(favoritos);
-            localStorage.setItem("Favoritos", nuevofavoritos);
-            console.log(localStorage);
-            botonfavs.innerText = "REMOVE FROM FAVOURITES";
-            botonfavs.style.backgroundColor = "#424242";
-          });
-        }
-  });
+let favoritos = [];
+if (recuperoStorage !== null) {
+  favoritos = storageToArray;
+}
+
+let botonfavs = document.querySelector("#addfavs");
+
+function agregarAFavoritos() {
+  favoritos.push(id);
+  let nuevofavoritos = JSON.stringify(favoritos);
+  localStorage.setItem("Favoritos", nuevofavoritos);
+  console.log(localStorage);
+  botonfavs.innerHTML = `REMOVE FROM FAVOURITES`;
+  botonfavs.removeEventListener("click", agregarAFavoritos);
+  botonfavs.addEventListener("click", eliminarDeFavoritos);
+  botonfavs.style.backgroundColor = "#424242";
+}
+
+function eliminarDeFavoritos() {
+  const index = favoritos.indexOf(id);
+  if (index > -1) {
+    favoritos.splice(index, 1);
+  }
+  let nuevofavoritos = JSON.stringify(favoritos);
+  localStorage.setItem("Favoritos", nuevofavoritos);
+  console.log(localStorage);
+  botonfavs.innerHTML = `ADD TO FAVOURITES`;
+  botonfavs.removeEventListener("click", eliminarDeFavoritos);
+  botonfavs.addEventListener("click", agregarAFavoritos);
+  botonfavs.style.backgroundColor = "#4c4c4c";
+}
+
+if (favoritos.includes(id)) {
+  botonfavs.innerHTML = `REMOVE FROM FAVOURITES`;
+  botonfavs.addEventListener("click", eliminarDeFavoritos);
+  botonfavs.style.backgroundColor = "#424242";
+} else {
+  botonfavs.innerHTML = `ADD TO FAVOURITES`;
+  botonfavs.addEventListener("click", agregarAFavoritos);
+  botonfavs.style.backgroundColor = "#4c4c4c";
+}
