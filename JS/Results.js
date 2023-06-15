@@ -13,10 +13,16 @@ fetch(endpointCanciones)
     })
     .then(function(data){
         console.log(data);
+
+        if (data.data.length == 0){
+            let hola = document.querySelector(".canciones")
+            hola.innerHTML += `<h2><small>No hubo resultados :(</small></h2>`
+        }
+
         let canciones = document.querySelector(".canciones")
         let songs = ""
         
-        for (let i=0; i<data.data.length; i++) 
+        for (let i=0; i<7; i++) 
         {
             songs +=`<ul class="cancion"><a href="DetailsTracks.html?id=${data.data[i].id}">
             <div class="portadas"><img class="imgportadas" src="${data.data[i].album.cover}" alt=""></div>
@@ -42,9 +48,15 @@ fetch(endpointAlbumes)
     .then(function(data)
     {
         console.log(data);
+
+        if (data.data.length == 0){
+            let hola = document.querySelector(".albums")
+            hola.innerHTML += `<h2><small>No hubo resultados :(</small></h2>`
+        }
+
         let albumshtml = document.querySelector(".albums")
         let albums = ""
-        for (let i=0; i<data.data.length; i++) 
+        for (let i=0; i<7; i++) 
         {
             albums +=`<ul class="album"><a href="DetailsAlbums.html?id=${data.data[i].id}">
                 <li class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></li>
@@ -70,6 +82,12 @@ fetch(endpointArtistas)
     .then(function(data)
     {
         console.log(data);
+
+        if (data.data.length == 0){
+            let hola = document.querySelector(".artistas")
+            hola.innerHTML += `<h2><small>No hubo resultados :(</small></h2>`
+        }
+
         let albumshtml = document.querySelector(".artistas")
         let albums = ""
         for (let i=0; i<7; i++) 
