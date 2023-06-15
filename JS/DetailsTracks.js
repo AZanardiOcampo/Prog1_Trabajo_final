@@ -13,47 +13,54 @@ fetch(apiurl)
   .then(function(data) {
     console.log(data);
 
-        let seccion = document.querySelector(".details");
         let reproductor = document.querySelector("audio")
         let titulo = document.querySelector(".titulo")
         let artista = document.querySelector(".artistatracks")
         let album = document.querySelector(".albumtracks")
         let imagen = document.querySelector(".portadadetalle")
+        let botonfavs = document.querySelector("#addfavs")
 
         titulo.innerText = "Title: " + data.title
         artista.innerText = "Artist: " + data.artist.name
         album.innerText = "Album: " + data.album.title
         imagen.src = data.album.cover_big
         reproductor.src = data.preview
+
+        let recuperoStorage = localStorage.getItem("Favoritos");
+        let storageToArray = JSON.parse(recuperoStorage)
+        
+        let favoritos = []
+        if(recuperoStorage !== null)
+        {
+          favoritos = storageToArray
+        }
+
+        if (favoritos.includes(id)) 
+        {
+          botonfavs.innerText = "REMOVE FROM FAVOURITES";
+          botonfavs.style.backgroundColor = "#424242";
+          botonfavs.addEventListener("click", function(e) {
+            e.preventDefault();
+            const index = favoritos.indexOf(id);
+            if (index > -1) {
+              favoritos.splice(index, 1);
+            }
+            let nuevofavoritos = JSON.stringify(favoritos);
+            localStorage.setItem("Favoritos", nuevofavoritos);
+            console.log(localStorage);
+            botonfavs.innerText = "ADD TO FAVOURITES";
+            botonfavs.style.backgroundColor = ""; // Restaurar el color original
+          })
+        } else 
+        {
+          botonfavs.addEventListener("click", function(e) {
+            e.preventDefault();
+            favoritos.push(id);
+            let nuevofavoritos = JSON.stringify(favoritos);
+            localStorage.setItem("Favoritos", nuevofavoritos);
+            console.log(localStorage);
+            botonfavs.innerText = "REMOVE FROM FAVOURITES";
+            botonfavs.style.backgroundColor = "#424242";
+          });
+        }
   });
-
-  let botonfavs = document.querySelector("#addfavs")
-  let recuperoStorage = localStorage.getItem("Favoritos");
-  let storageToArray = JSON.parse(recuperoStorage)
-  
-  let favoritos = []
-  if(recuperoStorage !== null)
-  {
-    favoritos = storageToArray
-  }
-
-  if(id in favoritos)
-  {
-    botonfavs.innerText = "REMOVE FROM FAVOURITES"
-    botonfavs.style.backgroundcolor = "#424242";
-    botonfavs.addEventListener("click", function(e)
-    {
-      
-    })
-  }
-  botonfavs.addEventListener("click", function(e) 
-  {
-      e.preventDefault()
-      favoritos.push(id)
-      let nuevofavoritos = JSON.stringify(favoritos)
-      localStorage.setItem("Favoritos", nuevofavoritos)
-      console.log(localStorage);
-      botonfavs.innerText = "REMOVE FROM FAVOURITES"
-      botonfavs.style.backgroundcolor = "#424242";
-  })
-
