@@ -11,24 +11,48 @@ let botonArtists = document.querySelector(".botonartists")
 let canciones = document.querySelector(".canciones")
 let albums = document.querySelector(".albums")
 let artistas = document.querySelector(".artistas")
+let todos = document.querySelector(".botontodos")
+let h2tracks = document.querySelector(".h2tracks")
+let h2albums = document.querySelector(".h2albums")
+let h2artists = document.querySelector(".h2artists")
  
-botonTracks.addEventListener("click", function()
-{
-    albums.style.display="none"
-    artistas.style.display="none"
-})
+botonTracks.addEventListener("click", function() {
+    canciones.style.display = "flex";
+    albums.style.display = "none";
+    artistas.style.display = "none";
+    h2tracks.style.display = "flex";
+    h2albums.style.display = "none";
+    h2artists.style.display = "none";
+});
 
-botonAlbums.addEventListener("click", function()
-{
-    canciones.style.display="none"
-    artistas.style.display="none"
-})
+botonAlbums.addEventListener("click", function() {
+    canciones.style.display = "none";
+    albums.style.display = "flex";
+    artistas.style.display = "none";
+    h2tracks.style.display = "none";
+    h2albums.style.display = "flex";
+    h2artists.style.display = "none";
+});
 
-botonArtists.addEventListener("click", function()
-{
-    canciones.style.display="none"
-    albums.style.display="none"
-})
+botonArtists.addEventListener("click", function() {
+    canciones.style.display = "none";
+    albums.style.display = "none";
+    artistas.style.display = "flex";
+    h2tracks.style.display = "none";
+    h2albums.style.display = "none";
+    h2artists.style.display = "flex";
+});
+
+todos.addEventListener("click", function() {
+    canciones.style.display = "flex";
+    albums.style.display = "flex";
+    artistas.style.display = "flex";
+    h2tracks.style.display = "flex";
+    h2albums.style.display = "flex";
+    h2artists.style.display = "flex";
+});
+
+let loader = document.querySelector(".loader")
 
 let endpointCanciones = `https://api.allorigins.win/raw?url=https://api.deezer.com/search/track?q=${datoABuscar}`
 
@@ -46,6 +70,7 @@ fetch(endpointCanciones)
 
         let canciones = document.querySelector(".canciones")
         let songs = ""
+        let loader = document.querySelector(".loaderTracks")
         
         for (let i=0; i<7; i++) 
         {
@@ -56,6 +81,7 @@ fetch(endpointCanciones)
             </ul>`
         }
         
+        loader.style.display = "none"
         canciones.innerHTML += songs
 
     })
@@ -81,6 +107,8 @@ fetch(endpointAlbumes)
 
         let albumshtml = document.querySelector(".albums")
         let albums = ""
+        let loader = document.querySelector(".loaderAlbums")
+
         for (let i=0; i<7; i++) 
         {
             albums +=`<ul class="album"><a href="DetailsAlbums.html?id=${data.data[i].id}">
@@ -89,7 +117,8 @@ fetch(endpointAlbumes)
                 <li><p class="ajuste">${data.data[i].artist.name}</p></li></a>
             </ul>`
         }
-        
+
+        loader.style.display = "none"
         albumshtml.innerHTML+= albums
     })
     .catch(function(error)
@@ -115,15 +144,17 @@ fetch(endpointArtistas)
 
         let albumshtml = document.querySelector(".artistas")
         let albums = ""
+        let loader = document.querySelector(".loaderArtists")
+
         for (let i=0; i<7; i++) 
         {
             albums +=`<ul class="artista">
                 <a href="DetailsArtists.html?id=${data.data[i].id}">
                 <li><img src="${data.data[i].picture}" class="portadas2" alt=""></li>
-                <li><div class="centrar"><p>${data.data[i].name}</p></div></li></a>
+                <li><div class="centrar"><p class="ajuste">${data.data[i].name}</p></div></li></a>
             </ul>`
         }
-        
+        loader.style.display = "none"
         albumshtml.innerHTML+= albums
     })
     .catch(function(error)

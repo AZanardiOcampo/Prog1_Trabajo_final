@@ -18,12 +18,14 @@ fetch(apiurl)
         let artista = document.querySelector(".artistatracks")
         let album = document.querySelector(".albumtracks")
         let imagen = document.querySelector(".portadadetalle")
+        let loader = document.querySelector(".loader")
 
         titulo.innerText = "Title: " + data.title
         artista.innerText = "Artist: " + data.artist.name
         album.innerText = "Album: " + data.album.title
         imagen.src = data.album.cover_big
         reproductor.src = data.preview
+        loader.style.display = "none"
 })
 
 let recuperoStorage = localStorage.getItem("Favoritos");

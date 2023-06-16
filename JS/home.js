@@ -12,6 +12,7 @@ fetch(urlcanciones)
         console.log(data);
         let canciones = document.querySelector(".canciones")
         let songs = ""
+        let loader = document.querySelector(".loaderTracks")
         
         for (let i=0; i<6; i++) 
         {
@@ -22,6 +23,7 @@ fetch(urlcanciones)
             </ul>`
         }
         
+        loader.style.display = "none"
         canciones.innerHTML+= songs
     })
     .catch(function(error)
@@ -41,6 +43,8 @@ fetch(urlcanciones)
             console.log(data);
             let albumshtml = document.querySelector(".albums")
             let albums = ""
+            let loader = document.querySelector(".loaderAlbums")
+
             for (let i=0; i<6; i++) 
             {
                 albums +=`<ul class="album"><a href="DetailsAlbums.html?id=${data.data[i].id}">
@@ -50,6 +54,7 @@ fetch(urlcanciones)
                 </ul>`
             }
             
+            loader.style.display = "none"
             albumshtml.innerHTML+= albums
         })
         .catch(function(error)
@@ -70,6 +75,8 @@ fetch(urlcanciones)
                 console.log(data);
                 let albumshtml = document.querySelector(".artistas")
                 let albums = ""
+                let loader = document.querySelector(".loaderArtists")
+
                 for (let i=1; i<7; i++) 
                 {
                     albums +=`<ul class="artista">
@@ -79,6 +86,7 @@ fetch(urlcanciones)
                     </ul>`
                 }
                 
+                loader.style.display = "none"
                 albumshtml.innerHTML+= albums
             })
             .catch(function(error)

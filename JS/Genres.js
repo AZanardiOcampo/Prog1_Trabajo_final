@@ -11,6 +11,7 @@ fetch(url)
         console.log(data);
         let container = document.querySelector(".generos")
         let characters = ""
+        let loader = document.querySelector(".loader")
         let array = data.data
 
         for (let i=1; i<array.length; i++)
@@ -22,7 +23,7 @@ fetch(url)
             
             </article>`     
         } 
-        
+        loader.style.display = "none"
         container.innerHTML += characters
     })       
     

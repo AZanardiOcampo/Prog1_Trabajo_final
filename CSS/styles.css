@@ -47,6 +47,23 @@ a
     font-family: 'Open Sans', sans-serif;
 }
 
+.loader
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid white;
+    border-top-color: transparent;
+    animation: spin 1.2s
+    linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .cancion
 {
     background-color: #424242;
@@ -252,6 +269,7 @@ text-align: center;}
     display: flex;
     list-style: none;
     flex-direction: row;
+    flex-wrap: wrap;
     background-color: #4c4c4c;
     padding: 15px;
     border-radius: 10px;
@@ -323,10 +341,54 @@ text-align: center;}
 
 }
 
-.cancionesFav {
+.cancionesFav 
+{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-evenly;
+    background-color: #4c4c4c;
+    padding: 15px;
+    border-radius: 10px;
+}
 
-display: flex;
-flex-wrap: wrap;
+.mejorarbotones
+{
+    background-color: #4c4c4c;
+    border-color: #424242;
+    color: white;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 30px;
+    padding: 20px;
+    width: 25%;
+}
 
+.containerbotones
+{
+    width: 40%;
+}
 
+@media(max-width: 1000px)
+{
+    .buscador
+    {
+        width: 50%;
+    }
+}
+
+@media(max-width: 1200px)
+{
+    .asnav
+    {
+        margin-bottom: 10px;
+    }
+}
+
+@media(max-width: 700px)
+{
+    .asnav
+    {
+        margin-top: 10px;
+    }
 }

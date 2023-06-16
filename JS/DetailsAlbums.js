@@ -18,7 +18,8 @@ fetch(apiurl)
       let released = document.querySelector(".released");
       let img = document.querySelector(".portadadetalle")
       let tracks = document.querySelector(".cambio");
-      tracks.innerText = "Tracks"
+      let loader = document.querySelector(".loader");
+      tracks.innerText = "Tracks";
 
       titulo.innerText = "Title: " + data.title
       img.src = data.cover_big
@@ -39,5 +40,6 @@ fetch(apiurl)
             <li>${i+1}. ${data.tracks.data[i].title}</li></a>
             </ul>
         `
+        loader.style.display = "none"
         articulo.innerHTML = characters2;
       }})

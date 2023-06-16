@@ -28,11 +28,16 @@ fetch(urlartistas)
     {
     console.log(data)
     let artistas = document.querySelector(".artistas")
+    let loader = document.querySelector(".loader")
+    let artists = ""
+
     for (let i=0; i<7; i++){
-        artistas.innerHTML += `<ul class="cancion"><a href="DetailsArtists.html?id=${data.data[i].id}">
+        artists += `<ul class="cancion"><a href="DetailsArtists.html?id=${data.data[i].id}">
         <div class="portadas"><img class="imgportadas" src="${data.data[i].picture}" alt=""></div>
             <li><p class="ajuste">${data.data[i].name}</p></li></a>
         </ul>`
     }
-    
+
+    loader.style.display = "none"
+    artistas.innerHTML += artists
     })  

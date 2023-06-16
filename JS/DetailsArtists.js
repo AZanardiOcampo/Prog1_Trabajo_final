@@ -15,6 +15,7 @@ fetch(apiurl)
         let seccion = document.querySelector(".details");
         let characters = ""
         let albums = document.querySelector(".cambio")
+        let loader = document.querySelector(".loader")
         albums.innerText = "Albums"
 
         characters += `<section class="detalles">
@@ -22,6 +23,7 @@ fetch(apiurl)
             <div class="centrar"><h2>${data.name}</h2></div>
             </section>` 
     
+        loader.style.display = "none"
         seccion.innerHTML = characters;
   });
 
@@ -36,7 +38,9 @@ fetch(urlalbumsartista)
     {
         console.log(data);
         let canciones = document.querySelector(".albumsdetails")
+        let loader = document.querySelector(".loaderDetails")
         let songs = ""
+        
         for (let i=0; i<5; i++) 
         {
             songs +=`<ul class="album"><a href="DetailsAlbums.html?id=${data.data[i].id}">
@@ -45,5 +49,6 @@ fetch(urlalbumsartista)
             </ul>`
         }
         
+        loader.style.display = "none"
         canciones.innerHTML+= songs
     })

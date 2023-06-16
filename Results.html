@@ -15,7 +15,7 @@
             <img src="img/Singin' Bird.png" alt="" class="logo">
            <a href="Home.html" class="asnav">HOME</a>
            <a href="Genres.html" class="asnav">GENRES</a>
-           <a href="Playlist.html" class="asnav">PLAYLIST / FAVOURITES</a>
+           <a href="Playlist.html" class="asnav">FAVOURITES</a>
            <form class="asnav" action="Results.html" method="get">
             <input class="buscador" type="text" name="q" id="" placeholder="Search">
             <button class="botonbuscador" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
@@ -23,16 +23,26 @@
         </nav>
     </header>
     <h1></h1>
-    <h2>Search preferences:</h2> <button type="button" class="botontracks">Tracks</button><button type="button" class="botonalbums">Albums</button><button type="button" class="botonartists">Artists</button>
+    <h2>Search preferences:</h2> <p class="containerbotones"><button type="button" class="botontracks mejorarbotones">Tracks</button><button type="button" class="botonalbums mejorarbotones">Albums</button><button type="button" class="botonartists mejorarbotones">Artists</button><button type="button" class="botontodos mejorarbotones">All</button></p>
     <h2 class="h2tracks">Tracks</h2>
-    <section class="canciones"></section>
+    <section class="canciones">
+        <div class="loader loaderTracks"></div>
+    </section>
     <h2 class="h2albums">Albums</h2>
-    <section class="albums"></section>
+    <section class="albums">
+        <div class="loader loaderAlbums"></div>
+    </section>
     <h2 class="h2artists">Artists</h2>
-    <section class="artistas"></section>
-    <footer>
-        <h2>Agustin Zanardi - Felipe Alonso - Mateo Lavandeira</h2>
-    </footer>
+    <section class="artistas">
+        <div class="loader loaderArtists"></div>
+    </section>
+
+<footer>
+    <p> | Agustin Zanardi Ocampo | </p>
+    <p> Felipe Alonso </p>
+    <p> | Mateo Lavandeira | </p>
+</footer>
+
     <script src="JS/Results.js"></script>
 </body>
 </html>
