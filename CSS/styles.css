@@ -322,3 +322,11 @@ text-align: center;}
     list-style: none;
 
 }
+
+.cancionesFav {
+
+display: flex;
+flex-wrap: wrap;
+
+
+}
