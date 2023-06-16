@@ -3,7 +3,32 @@ let qsToObject = new URLSearchParams(querystring)
 let datoABuscar = qsToObject.get("q")
 
 let busqueda = document.querySelector("h1")
-busqueda.innerHTML += `<h1>Resultados de busqueda para <i>${datoABuscar}</i></h1>`
+busqueda.innerHTML += `<h2>Search results for <i>${datoABuscar}</i></h2>`
+
+let botonTracks = document.querySelector(".botontracks")
+let botonAlbums = document.querySelector(".botonalbums")
+let botonArtists = document.querySelector(".botonartists")
+let canciones = document.querySelector(".canciones")
+let albums = document.querySelector(".albums")
+let artistas = document.querySelector(".artistas")
+ 
+botonTracks.addEventListener("click", function()
+{
+    albums.style.display="none"
+    artistas.style.display="none"
+})
+
+botonAlbums.addEventListener("click", function()
+{
+    canciones.style.display="none"
+    artistas.style.display="none"
+})
+
+botonArtists.addEventListener("click", function()
+{
+    canciones.style.display="none"
+    albums.style.display="none"
+})
 
 let endpointCanciones = `https://api.allorigins.win/raw?url=https://api.deezer.com/search/track?q=${datoABuscar}`
 
@@ -16,7 +41,7 @@ fetch(endpointCanciones)
 
         if (data.data.length == 0){
             let hola = document.querySelector(".canciones")
-            hola.innerHTML += `<h2><small>No hubo resultados :(</small></h2>`
+            hola.innerHTML += `<h2><small>No results :(</small></h2>`
         }
 
         let canciones = document.querySelector(".canciones")
@@ -51,7 +76,7 @@ fetch(endpointAlbumes)
 
         if (data.data.length == 0){
             let hola = document.querySelector(".albums")
-            hola.innerHTML += `<h2><small>No hubo resultados :(</small></h2>`
+            hola.innerHTML += `<h2><small>No results :(</small></h2>`
         }
 
         let albumshtml = document.querySelector(".albums")
@@ -85,7 +110,7 @@ fetch(endpointArtistas)
 
         if (data.data.length == 0){
             let hola = document.querySelector(".artistas")
-            hola.innerHTML += `<h2><small>No hubo resultados :(</small></h2>`
+            hola.innerHTML += `<h2><small>No results :(</small></h2>`
         }
 
         let albumshtml = document.querySelector(".artistas")
@@ -114,7 +139,7 @@ form.addEventListener("submit", function(e){
     e.preventDefault();
                 
     if(input.value === ""){
-        alert("El campo es obligatorio!")
+        alert("This field is required!")
     }  else {
             this.submit()
     }

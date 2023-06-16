@@ -93,7 +93,7 @@ form.addEventListener("submit", function(e){
     e.preventDefault();
             
     if(input.value === ""){
-        alert("El campo es obligatorio!")
+        alert("This field is required!")
     }  else {
         this.submit()
     }
