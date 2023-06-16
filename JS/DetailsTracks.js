@@ -48,10 +48,8 @@ function agregarAFavoritos() {
 }
 
 function eliminarDeFavoritos() {
-  const index = favoritos.indexOf(id);
-  if (index > -1) {
-    favoritos.splice(index, 1);
-  }
+  let index = favoritos.indexOf(id);
+  favoritos.splice(index, 1);
   let nuevofavoritos = JSON.stringify(favoritos);
   localStorage.setItem("Favoritos", nuevofavoritos);
   console.log(localStorage);
