@@ -72,7 +72,7 @@ fetch(endpointCanciones)
         let songs = ""
         let loader = document.querySelector(".loaderTracks")
         
-        for (let i=0; i<7; i++) 
+        for (let i=0; i<12; i++) 
         {
             songs +=`<ul class="cancion"><a href="DetailsTracks.html?id=${data.data[i].id}">
             <div class="portadas"><img class="imgportadas" src="${data.data[i].album.cover}" alt=""></div>
@@ -109,7 +109,7 @@ fetch(endpointAlbumes)
         let albums = ""
         let loader = document.querySelector(".loaderAlbums")
 
-        for (let i=0; i<7; i++) 
+        for (let i=0; i<12; i++) 
         {
             albums +=`<ul class="album"><a href="DetailsAlbums.html?id=${data.data[i].id}">
                 <li class="portadas"><img class="imgportadas" src="${data.data[i].cover}" alt=""></li>
@@ -146,7 +146,7 @@ fetch(endpointArtistas)
         let albums = ""
         let loader = document.querySelector(".loaderArtists")
 
-        for (let i=0; i<7; i++) 
+        for (let i=0; i<12; i++) 
         {
             albums +=`<ul class="artista">
                 <a href="DetailsArtists.html?id=${data.data[i].id}">

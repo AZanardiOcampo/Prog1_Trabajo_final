@@ -31,7 +31,7 @@ fetch(urlartistas)
     let loader = document.querySelector(".loader")
     let artists = ""
 
-    for (let i=0; i<7; i++){
+    for (let i=0; i<12; i++){
         artists += `<ul class="cancion"><a href="DetailsArtists.html?id=${data.data[i].id}">
         <div class="portadas"><img class="imgportadas" src="${data.data[i].picture}" alt=""></div>
             <li><p class="ajuste">${data.data[i].name}</p></li></a>
