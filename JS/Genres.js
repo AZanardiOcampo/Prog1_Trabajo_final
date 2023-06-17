@@ -25,5 +25,6 @@ fetch(url)
         } 
         loader.style.display = "none"
         container.innerHTML += characters
+        
     })       
     
